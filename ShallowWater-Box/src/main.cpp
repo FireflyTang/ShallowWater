@@ -30,9 +30,19 @@ int main(int argc, const char * argv[]) {
     }
     for(int i=0;i<INUM+2;i++){
         for(int j=0;j<JNUM+2;j++){
+            auto &pPoint = Grid[i][j];
+            pPoint->Neighbours.clear();
+            pPoint->w.clear();
+            pPoint->alpha.clear();
+            pPoint->beta.clear();
+        }
+    }
+    for (int i = 0; i < INUM + 2; i++) {
+        for (int j = 0; j < JNUM + 2; j++) {
+            auto &pPoint = Grid[i][j];
+            for (int ii = i - 2; ii <= i + 2; ii++) {
 
-            for(int ii=i-3;)
-
+            }
         }
     }
     OutputObj(Grid,"result.obj");
