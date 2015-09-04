@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CoolMath">
+      <UniqueIdentifier>{9ee5ee3a-1196-4ecb-9131-51a67ca92568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoolCG">
+      <UniqueIdentifier>{9f87aac3-0ed6-4317-b28d-c2cbf93cdee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SOIL">
+      <UniqueIdentifier>{83535579-178f-4a97-b27f-2f6958a8695c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\AABBTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Mesh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MeshSimplification.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sample.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CoolMath\CoolMath.cpp">
+      <Filter>CoolMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CoolMath\Matrix.cpp">
+      <Filter>CoolMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CoolMath\Vector.cpp">
+      <Filter>CoolMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CoolCG\CoolCG.cpp">
+      <Filter>CoolCG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SOIL\image_DXT.c">
+      <Filter>SOIL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SOIL\image_helper.c">
+      <Filter>SOIL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SOIL\SOIL.c">
+      <Filter>SOIL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SOIL\stb_image_aug.c">
+      <Filter>SOIL</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\AABBTree.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Macro.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Mesh.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MeshSimplification.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sample.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CoolMath\CoolMath.h">
+      <Filter>CoolMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CoolMath\Matrix.h">
+      <Filter>CoolMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CoolMath\utils.h">
+      <Filter>CoolMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CoolMath\Vector.h">
+      <Filter>CoolMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CoolCG\CoolCG.h">
+      <Filter>CoolCG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CoolCG\CoolCGDelegate.h">
+      <Filter>CoolCG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOIL\image_DXT.h">
+      <Filter>SOIL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOIL\image_helper.h">
+      <Filter>SOIL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOIL\SOIL.h">
+      <Filter>SOIL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOIL\stb_image_aug.h">
+      <Filter>SOIL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOIL\stbi_DDS_aug.h">
+      <Filter>SOIL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOIL\stbi_DDS_aug_c.h">
+      <Filter>SOIL</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

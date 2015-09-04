@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShallowWater", "ShallowWater.vcxproj", "{2D9C8E8D-421B-4D10-8C23-02F067B72012}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShallowWater-Box", "..\ShallowWater-Box\ShallowWater-Box.vcxproj", "{026EC6D9-1351-4F41-A91D-D69BF782422B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D9C8E8D-421B-4D10-8C23-02F067B72012}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2D9C8E8D-421B-4D10-8C23-02F067B72012}.Debug|Win32.Build.0 = Debug|Win32
+		{2D9C8E8D-421B-4D10-8C23-02F067B72012}.Release|Win32.ActiveCfg = Release|Win32
+		{2D9C8E8D-421B-4D10-8C23-02F067B72012}.Release|Win32.Build.0 = Release|Win32
+		{026EC6D9-1351-4F41-A91D-D69BF782422B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{026EC6D9-1351-4F41-A91D-D69BF782422B}.Debug|Win32.Build.0 = Debug|Win32
+		{026EC6D9-1351-4F41-A91D-D69BF782422B}.Release|Win32.ActiveCfg = Release|Win32
+		{026EC6D9-1351-4F41-A91D-D69BF782422B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
