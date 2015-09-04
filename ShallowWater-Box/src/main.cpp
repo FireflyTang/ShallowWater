@@ -2,7 +2,7 @@
 //  main.cpp
 //  ShallowWater-Box
 //
-//  Created by 唐如�?on 15/9/3.
+//  Created by 唐如�?on 15/9/3.
 //  Copyright (c) 2015 Computer Graphics, Tsinghua University. All rights reserved.
 //
 
@@ -26,6 +26,13 @@ int main(int argc, const char * argv[]) {
             pPoint->X = i * DELTAX;
             pPoint->Y = j * DELTAY;
             pPoint->ID = pPoints.size() - 1;
+        }
+    }
+    for(int i=0;i<INUM+2;i++){
+        for(int j=0;j<JNUM+2;j++){
+
+            for(int ii=i-3;)
+
         }
     }
     OutputObj(Grid,"result.obj");
