@@ -1,4 +1,6 @@
-#import <vector>
+#pragma once
+
+#include <vector>
 #include <CGAL/Cartesian.h>
 #include <CGAL/Point_2.h>
 #include <CGAL/Vector_2.h>

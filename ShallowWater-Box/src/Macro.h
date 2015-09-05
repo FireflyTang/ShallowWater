@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Point.h"
 
 const int INUM = 2,JNUM = 1;

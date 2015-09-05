@@ -10,6 +10,27 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Equation.cpp" />
+    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="Init.cpp" />
+    <ClCompile Include="InitCondition.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Output.cpp" />
+    <ClCompile Include="src\Solver.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Equation.h" />
+    <ClInclude Include="Field.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="Init.h" />
+    <ClInclude Include="InitCondition.h" />
+    <ClInclude Include="src\Macro.h" />
+    <ClInclude Include="src\Output.h" />
+    <ClInclude Include="src\Point.h" />
+    <ClInclude Include="src\Solver.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{026EC6D9-1351-4F41-A91D-D69BF782422B}</ProjectGuid>
     <RootNamespace>ShallowWaterBox</RootNamespace>
@@ -44,9 +65,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\local\boost_1_59_0;C:\local\boost_1_59_0\boost;C:\local\boost_1_59_0\libs;C:\local\CGAL-4.6.2\auxiliary\gmp\include;C:\local\CGAL-4.6.2\include;C:\Users\kylin\Desktop\CG\for win\ShallowWater\ShallowWater-Box\src;C:\Users\kylin\Desktop\CG\for win\ShallowWater\ShallowWater-Box;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4819;4018</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\local\boost_1_59_0\lib32-msvc-12.0;C:\local\boost_1_59_0\libs;C:\local\CGAL-4.6.2\auxiliary\gmp\lib;C:\local\CGAL-4.6.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -63,9 +88,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

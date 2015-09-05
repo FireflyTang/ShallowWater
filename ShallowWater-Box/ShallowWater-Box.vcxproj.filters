@@ -15,8 +15,58 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Equation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Init.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InitCondition.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\Output.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Solver.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Equation.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Init.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InitCondition.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Macro.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Output.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Point.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Solver.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
