@@ -1,9 +1,15 @@
 #include <iosfwd>
 #include <fstream>
+#include <sstream>
 #include "Macro.h"
 #include "Point.h"
 
-void OutputObj(pPoint_t Grid[INUM+2][JNUM+2],std::string fn){
+void OutputObj(Grid_t Grid, Field_t H, int step) {
+
+	std::stringstream ss;
+	ss << "result-" << step;
+	std::string fn;
+	ss >> fn;
     std::ofstream obj(fn);
     if(!obj.is_open()){
         perror("output error");
@@ -12,7 +18,7 @@ void OutputObj(pPoint_t Grid[INUM+2][JNUM+2],std::string fn){
     obj<<"usemtl"<<"  "<<"Bottom"<<std::endl;
     for(int i=0;i<INUM+2;i++) {
         for (int j = 0; j < JNUM + 2; j++) {
-            obj << "v" << "  " << Grid[i][j]->X << " " << 0 << "  " << Grid[i][j]->Y << std::endl;
+	        obj << "v" << "  " << Grid[i][j]->Position.x() << " " << 0 << "  " << Grid[i][j]->Position.y() << std::endl;
         }
     }
     for(int i=0;i<INUM+1;i++){
@@ -26,7 +32,7 @@ void OutputObj(pPoint_t Grid[INUM+2][JNUM+2],std::string fn){
     obj<<"usemtl"<<"  "<<"Water"<<std::endl;
     for(int i=0;i<INUM+2;i++) {
         for (int j = 0; j < JNUM + 2; j++) {
-            obj << "v" << "  " << Grid[i][j]->X << " " << Grid[i][j]->h << "  " << Grid[i][j]->Y << std::endl;
+	        obj << "v" << "  " << Grid[i][j]->Position.x() << " " << H[i][j] << "  " << Grid[i][j]->Position.y() << std::endl;
         }
     }
     for(int i=0;i<INUM+1;i++){

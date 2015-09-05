@@ -11,41 +11,51 @@
 #include "Point.h"
 #include "Output.h"
 
+#include "Init.h"
+#include "Equation.h"
+#include "Grid.h"
+#include "InitCondition.h"
+#include "Field.h"
+#include "Solver.h"
+
 std::vector<pPoint_t> pPoints;
+pPoint_t Grid[INUM + 2][JNUM + 2];
+double H[INUM + 2][JNUM + 2];
+double HOld[INUM + 2][JNUM + 2];
+double D[INUM + 2][JNUM + 2];
+double B[INUM + 2][JNUM + 2];
+double G[INUM + 2][JNUM + 2];
+double Ag[POINTNUM][POINTNUM];
+double A[POINTNUM][POINTNUM];
+double RightB[POINTNUM];
 
 int main(int argc, const char * argv[]) {
-    pPoint_t Grid[INUM+2][JNUM+2];
-    for(int i=0;i<INUM+2;i++) {
-        for (int j = 0; j < JNUM + 2; j++) {
-            Grid[i][j] = new Point_t;
-            auto &pPoint = Grid[i][j];
-            pPoints.push_back(pPoint);
-            pPoint->I = i;
-            pPoint->J = j;
-            pPoint->h = 2;
-            pPoint->X = i * DELTAX;
-            pPoint->Y = j * DELTAY;
-            pPoint->ID = pPoints.size() - 1;
-        }
-    }
-    for(int i=0;i<INUM+2;i++){
-        for(int j=0;j<JNUM+2;j++){
-            auto &pPoint = Grid[i][j];
-            pPoint->Neighbours.clear();
-            pPoint->w.clear();
-            pPoint->alpha.clear();
-            pPoint->beta.clear();
-        }
-    }
-    for (int i = 0; i < INUM + 2; i++) {
-        for (int j = 0; j < JNUM + 2; j++) {
-            auto &pPoint = Grid[i][j];
-            for (int ii = i - 2; ii <= i + 2; ii++) {
+	Init();
+	//计算w
+	CalcW(Grid);
+	//初始条件
+	InitCondition(H, HOld, B, D, G);
 
-            }
-        }
-    }
-    OutputObj(Grid,"result.obj");
-    return 0;
+	double time = 0;
+	for (int step = 0; step < STEPS; step++, time += DELTAT) {
+		std::cout << "step = " << step << " time =  " << time << std::endl;
+		//计算深度
+		CalcD(D, H, B);
+		//计算Ag
+		CalcAg(Ag, Grid, pPoints, D, G);
+		//计算A
+		CalcA(A, Ag);
+		//计算右边b
+		CalcRightB(RightB, H, HOld);
+		//HOld = H
+		RestoreH(HOld, H);
+		//解方程
+		Solve(H, A, RightB);
+		//修改边界条件
+		Boundary(H);
+		//输出
+		OutputObj(Grid, H, step);
+	}
+	return 0;
 }
 
