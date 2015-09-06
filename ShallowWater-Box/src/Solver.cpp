@@ -1,9 +1,11 @@
 #include "Solver.h"
 #include "Macro.h"
-
+#include <assert.h>
+#include "mkl_lapacke.h"
 
 void Solve(Field_t H, Matrix_t A, RightB_t RightB) {
-	double AA[INUM * JNUM][INUM * JNUM];
+	double (*AA) [INUM*JNUM] = (double (*) [INUM*JNUM])(new double[INUM*JNUM][INUM*JNUM]);
+
 	for (int j = 1; j <= JNUM; j++) {
 		int AID = GETID(2, j);
 		int BID = GETID(0, j);
@@ -23,8 +25,8 @@ void Solve(Field_t H, Matrix_t A, RightB_t RightB) {
 			A[k][AID] += A[k][BID];
 	}
 	for (int i = 1; i <= INUM; i++) {
-		int AID = GETID(i, JNUM + 1);
-		int BID = GETID(i, JNUM - 1);
+		int AID = GETID(i, JNUM - 1);
+		int BID = GETID(i, JNUM + 1);
 		for (int k = 0; k < POINTNUM; k++)
 			A[k][AID] += A[k][BID];
 	}
@@ -44,20 +46,28 @@ void Solve(Field_t H, Matrix_t A, RightB_t RightB) {
 	BID = GETID(INUM + 1, JNUM + 1);
 	for (int k = 0; k < POINTNUM; k++)
 		A[k][AID] += A[k][BID];
+
+
 	for (int i = 0; i < INUM * JNUM; i++) {
 		for (int j = 0; j < INUM * JNUM; j++) {
 			AA[i][j] = A[OuterID(i)][OuterID(j)];
 		}
 	}
 
-	double BB[INUM * JNUM];
+	double *  BB = (double *)(new double[INUM*JNUM]);
 	for (int k = 0; k < INUM * JNUM; k++)
 		BB[k] = RightB[OuterID(k)];
 
-	double HH[INUM * JNUM];
+	int *  ipiv = (int *)(new int[INUM*JNUM]);
+	LAPACKE_dgesv(LAPACK_ROW_MAJOR, INUM*JNUM, 1, (double *)AA, INUM*JNUM, ipiv, BB, 1);
+
 	for (int i = 1; i <= INUM; i++) {
 		for (int j = 1; j <= JNUM; j++) {
-			H[i][j] = HH[GETID(i, j)];
+			H[i][j] = BB[(i-1)*JNUM+j-1];
 		}
 	}
+
+	delete[] ipiv;
+	delete[] BB;
+	delete[] AA;
 }

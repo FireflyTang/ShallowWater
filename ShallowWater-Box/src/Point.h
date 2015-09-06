@@ -15,7 +15,7 @@ class Point_t{
 public:
     int I,J;
     Point_2 Position;
-    unsigned long ID;
+    size_t ID;
     std::vector<pPoint_t> Neighbours;
     std::vector<double> w, alpha, beta, phi;
 };

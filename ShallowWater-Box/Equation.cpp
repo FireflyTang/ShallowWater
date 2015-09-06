@@ -18,19 +18,21 @@ void CalcAg(Matrix_t Ag, Grid_t Grid, pPoints_t &pPoints, Field_t D, Field_t G) 
 		auto &PointI = pPoints[Ai];
 		for (int k = 0; k < PointI->Neighbours.size(); k++) {
 			auto &PointJ = PointI->Neighbours[k];
-			int Aj = PointJ->ID;
+			size_t Aj = PointJ->ID;
 			Ag[Ai][Aj] = -PointI->w[k] * (D[0][Ai] + D[0][Aj]) * (G[0][Ai] + G[0][Aj]);
 			Ag[Ai][Aj] /= 8 * AREA;
+			Ag[Ai][Aj] *= DELTAT*DELTAT;
 		}
 	}
 	for (int Ai = 0; Ai < POINTNUM; Ai++) {
 		auto &PointI = pPoints[Ai];
 		for (int k = 0; k < PointI->Neighbours.size(); k++) {
 			auto &PointJ = PointI->Neighbours[k];
-			int Aj = PointJ->ID;
+			size_t Aj = PointJ->ID;
 			Ag[Ai][Ai] += PointI->w[k] * (D[0][Ai] + D[0][Aj]) * (G[0][Ai] + G[0][Aj]);
 		}
 		Ag[Ai][Ai] /= 8 * AREA;
+		Ag[Ai][Ai] *= DELTAT*DELTAT;
 	}
 }
 

@@ -18,18 +18,20 @@
 #include "Field.h"
 #include "Solver.h"
 
-std::vector<pPoint_t> pPoints;
-pPoint_t Grid[INUM + 2][JNUM + 2];
-double H[INUM + 2][JNUM + 2];
-double HOld[INUM + 2][JNUM + 2];
-double D[INUM + 2][JNUM + 2];
-double B[INUM + 2][JNUM + 2];
-double G[INUM + 2][JNUM + 2];
-double Ag[POINTNUM][POINTNUM];
-double A[POINTNUM][POINTNUM];
-double RightB[POINTNUM];
+Grid_t Grid = (Grid_t)(new pPoint_t[(INUM + 2)*(JNUM + 2)]);
+Field_t H = (Field_t)(new double[INUM + 2][JNUM + 2]);
+Field_t HOld = (Field_t)(new double[INUM + 2][JNUM + 2]);
+Field_t D = (Field_t)(new double[INUM + 2][JNUM + 2]);
+Field_t B = (Field_t)(new double[INUM + 2][JNUM + 2]);
+Field_t G = (Field_t)(new double[INUM + 2][JNUM + 2]);
+Matrix_t Ag = (Matrix_t)(new double[POINTNUM][POINTNUM]);
+Matrix_t A = (Matrix_t)(new double[POINTNUM][POINTNUM]);
+RightB_t RightB = (RightB_t)(new double[POINTNUM]);
+pPoints_t & pPoints = *new std::vector<pPoint_t>;
+
 
 int main(int argc, const char * argv[]) {
+	
 	Init();
 	//计算w
 	CalcW(Grid);
@@ -39,6 +41,8 @@ int main(int argc, const char * argv[]) {
 	double time = 0;
 	for (int step = 0; step < STEPS; step++, time += DELTAT) {
 		std::cout << "step = " << step << " time =  " << time << std::endl;
+		//输出
+		OutputObj(Grid, H, step);
 		//计算深度
 		CalcD(D, H, B);
 		//计算Ag
@@ -51,10 +55,8 @@ int main(int argc, const char * argv[]) {
 		RestoreH(HOld, H);
 		//解方程
 		Solve(H, A, RightB);
-		//修改边界条件
+		//补全边界条件
 		Boundary(H);
-		//输出
-		OutputObj(Grid, H, step);
 	}
 	return 0;
 }

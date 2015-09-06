@@ -1,16 +1,16 @@
 #include "Point.h"
 #include "Macro.h"
 
-extern std::vector<pPoint_t> pPoints;
-extern pPoint_t Grid[INUM + 2][JNUM + 2];
-extern double H[INUM + 2][JNUM + 2];
-extern double HOld[INUM + 2][JNUM + 2];
-extern double D[INUM + 2][JNUM + 2];
-extern double B[INUM + 2][JNUM + 2];
-extern double G[INUM + 2][JNUM + 2];
-extern double Ag[POINTNUM][POINTNUM];
-extern double A[POINTNUM][POINTNUM];
-extern double RightB[POINTNUM];
+extern Grid_t Grid;
+extern Field_t H;
+extern Field_t HOld;
+extern Field_t B;
+extern Field_t D;
+extern Field_t G;
+extern Matrix_t A;
+extern Matrix_t Ag;
+extern RightB_t RightB;
+extern pPoints_t & pPoints;
 
 void Init() {
 	pPoints.clear();

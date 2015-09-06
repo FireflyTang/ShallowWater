@@ -6,11 +6,11 @@
 
 void OutputObj(Grid_t Grid, Field_t H, int step) {
 
-	std::stringstream ss;
-	ss << "result-" << step;
-	std::string fn;
-	ss >> fn;
-    std::ofstream obj(fn);
+	std::stringstream objbuffer;
+	objbuffer << "result/obj/frame_" << step << ".obj";
+	std::string objfn;
+	objbuffer >> objfn;
+	std::ofstream obj(objfn);
     if(!obj.is_open()){
         perror("output error");
         exit(-1);
