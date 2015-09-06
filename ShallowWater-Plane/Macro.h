@@ -3,7 +3,7 @@
 #include "Point.h"
 
 const int INUM =30,JNUM = 30;
-const double DELTAX = 0.03,DELTAY =0.03;
+const double DELTAX = 0.1,DELTAY =0.1;
 const int STEPS = 2000;
 const double DELTAT =0.001;
 

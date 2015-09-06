@@ -16,17 +16,16 @@ void InitCondition(Field_t H, Field_t HOld, Field_t B, Field_t D, Field_t G) {
 		}
 	}
 
-	//for (int i = 0; i < INUM + 2; i++) {
-	//	for (int j = 0; j < JNUM + 2; j++) {
-	//		if ((i - 50)*(i - 50) + (j - 50)*(j - 50) <= 225){
-	//			
-	//		}
-	//	}
-	//}
+	for (int i = 0; i < INUM + 2; i++) {
+		for (int j = 0; j < JNUM + 2; j++) {
+			if ((i - 15)*(i - 15) + (j - 15)*(j - 15) <= 26){
+				H[i][j] = 2.5;
+				HOld[i][j] = 2.5;
+				D[i][j] = 2.5;
+			}
+		}
+	}
 
-	H[15][15] = 3;
-	HOld[15][15] = 3;
-	D[15][15] = 3;
 
 	//for (int i = 21; i <= 31; i++) {
 	//	for (int j = 21; j <= 31; j++) {

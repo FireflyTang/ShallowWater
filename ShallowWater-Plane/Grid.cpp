@@ -71,7 +71,7 @@ void CalcW(Grid_t Grid) {
 			pPoint->Neighbours.erase(self);
 			campdistance_t campdistance(pPoint);
 			std::sort(pPoint->Neighbours.begin(), pPoint->Neighbours.end(), campdistance);
-			pPoint->Neighbours.erase(pPoint->Neighbours.begin() + 8, pPoint->Neighbours.end());
+			pPoint->Neighbours.erase(pPoint->Neighbours.begin() + 6, pPoint->Neighbours.end());
 		}
 	}
 
